@@ -2,14 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     }
   },
   "typeAcquisition": {
-    "exclude": [
-      "dotenv"
-    ]
+    "exclude": ["dotenv"]
   }
 }
