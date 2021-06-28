@@ -1,0 +1,79 @@
+$headerHeight: 60px; // 应用顶部高度
+$sidebarWidth: 280px; // 侧边栏宽度
+$zIndexMax: 999; // 页面最大zIndex
+$layoutSpace: $space-lg; // 布局统一间距20px
+$contentSpaceV: $space-xl; // 内容上下空白30px;
+$contentSpaceH: $space-xxl; // 内容左右空白40px
+$minWidth: 1200px;
+
+.page {
+  min-width: $minWidth;
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $zIndexMax;
+    width: 100%;
+    min-width: $minWidth;
+    height: $headerHeight;
+    @extend %flex-row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $color-white;
+    @include border('bottom', $color-border);
+    .logo {
+      line-height: $headerHeight;
+      align-self: stretch;
+      text-align: center;
+      color: $color-blue;
+      width: $sidebarWidth;
+      border-right: 1px solid $color-border;
+      font: {
+        size: 26px;
+        weight: 500;
+      }
+    }
+    .tab {
+      @extend %flex-row;
+      align-self: stretch;
+      justify-content: flex-start;
+      padding-left: 3 * $space-lg;
+      align-items: center;
+      .tab-item {
+        align-self: stretch;
+        word-break: keep-all;
+        font-size: 16px;
+        display: flex;
+        color: $font-color-assist;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1.5 * $space-lg;
+        position: relative;
+        cursor: pointer;
+        &:hover {
+          color: $font-color-title;
+        }
+        &.router-link-active {
+          font-weight: 500;
+          color: $font-color-title;
+        }
+      }
+    }
+  }
+  .layout-main {
+    box-sizing: border-box;
+    background-color: $color-white;
+    padding: $headerHeight + $contentSpaceV $contentSpaceH $contentSpaceV $sidebarWidth +
+      $contentSpaceH;
+  }
+  .layout-sidebar {
+    width: $sidebarWidth;
+    position: fixed;
+    left: 0;
+    top: $headerHeight;
+    height: calc(100vh - 60px);
+    overflow: auto;
+    z-index: $zIndexMax - 1;
+  }
+}

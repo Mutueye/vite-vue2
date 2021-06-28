@@ -2,13 +2,9 @@ module.exports = {
   root: true,
   parser: 'vue-eslint-parser',
   parserOptions: {
+    parser: 'babel-eslint',
     sourceType: 'module',
-    ecmaVersion: 2018,
-    ecmaFeatures: {
-      globalReturn: false,
-      impliedStrict: false,
-      jsx: false,
-    },
+    allowImportExportEverywhere: true,
   },
   settings: {
     react: {

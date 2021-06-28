@@ -1,26 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Hello Vue 2 + Vite" />
+  <div id="app" class="page">
+    <div class="header">
+      <div class="logo">QST-UI 规范</div>
+      <div class="tab">
+        <router-link
+          v-for="(item, index) in menuData"
+          :key="index"
+          tag="div"
+          class="tab-item"
+          :to="item.path"
+        >
+          {{ item.title }}
+        </router-link>
+      </div>
+    </div>
+    <router-view class="layout-main"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue';
+import routeData from '@/router/routeData.js';
+
 export default {
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      menuData: routeData,
+    };
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

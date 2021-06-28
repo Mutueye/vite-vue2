@@ -1,0 +1,14 @@
+@import './normalize.scss';
+@import './var.scss';
+@import './util.scss';
+@import './mixin.scss';
+
+body,
+html {
+  font-size: 14px;
+  color: $font-color-title;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
