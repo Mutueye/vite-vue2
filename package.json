@@ -13,6 +13,7 @@
     "vue": "^2.6.12"
   },
   "devDependencies": {
+    "@vitejs/plugin-legacy": "^1.4.3",
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
