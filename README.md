@@ -1,5 +1,7 @@
-# qstui 
-## 新分支：使用vite构建vue2项目
+# qstui
+
+## 新分支：使用 vite 构建 vue2 项目
+
 使用[underfin's vite-plugin-vue2](https://github.com/underfin/vite-plugin-vue2).
 
 ## Scripts
