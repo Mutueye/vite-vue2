@@ -6,6 +6,11 @@
 
 <script>
 export default {
-  props: ['value'],
+  props: {
+    value: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>

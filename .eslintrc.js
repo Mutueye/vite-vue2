@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   env: {
+    jest: true,
     browser: true,
     amd: true,
     node: true,
