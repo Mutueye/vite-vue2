@@ -2,6 +2,7 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import { createVuePlugin } from 'vite-plugin-vue2';
 import envCompatible from 'vite-plugin-env-compatible';
+import htmlEnv from 'vite-plugin-html-env';
 import legacy from '@vitejs/plugin-legacy';
 
 const pathSrc = path.resolve(__dirname, './src');
@@ -13,6 +14,7 @@ export default defineConfig({
       targets: ['defaults', 'ie >= 11'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
     }),
+    htmlEnv(),
     envCompatible(),
   ],
   build: {
