@@ -27,6 +27,10 @@ export default {
       type: String,
       required: true,
     },
+    showTip: {
+      type: Boolean,
+      default: false,
+    },
     // info: { title, label }
     info: {
       type: Object,

@@ -1,21 +1,20 @@
 <template>
-  <markdown-it-vue
-    class="mark-down-content"
+  <MarkdownRender
     :id="id"
+    class="mark-down-content"
     :class="{ useHeaderOffset: useHeaderOffset }"
     :content="content"
-    :options="options"
-    @render-complete="handleCmplete"
   >
-  </markdown-it-vue>
+  </MarkdownRender>
 </template>
 
 <script>
-import VueScrollTo from 'vue-scrollto';
+// import VueScrollTo from 'vue-scrollto';
 import { v4 as uuidv4 } from 'uuid';
-import MarkdownItVue from '@/components/MarkdownItVue';
+import MarkdownRender from '@/components/MarkdownRender/index.vue';
+
 export default {
-  components: { MarkdownItVue },
+  components: { MarkdownRender },
   props: {
     content: {
       type: String,
@@ -29,34 +28,7 @@ export default {
   data() {
     return {
       id: uuidv4(),
-      options: {
-        markdownIt: {
-          linkify: true,
-        },
-        linkAttributes: {
-          attrs: {
-            target: '_self',
-            rel: 'noopener',
-          },
-        },
-      },
     };
-  },
-  methods: {
-    handleCmplete() {
-      const hashName = decodeURIComponent(this.$route.hash);
-      const includeEl =
-        hashName && document.getElementById(this.id)
-          ? document.getElementById(this.id).querySelector(hashName)
-          : null;
-      if (hashName && includeEl) {
-        this.$nextTick(() => {
-          VueScrollTo.scrollTo(hashName);
-          // 以下方法不起作用，原因未知 TODO
-          // document.getElementById(hashName).scrollIntoView()
-        });
-      }
-    },
   },
 };
 </script>
@@ -73,10 +45,6 @@ $headerHeight: 60px; // 应用顶部高度
     color: $font-color-title;
     margin-top: -1 * $headerHeight !important;
     border-bottom: none;
-  }
-  p {
-    font-size: 14px;
-    color: $font-color-body;
   }
   &.useHeaderOffset {
     margin-top: -1 * $headerHeight - 24px;

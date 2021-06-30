@@ -5,6 +5,57 @@
  */
 const routeData = [
   {
+    path: '/conventions',
+    name: 'conventions',
+    title: '规范',
+    component: () => import('../page/ContentPage.vue'),
+    children: [
+      {
+        // 通过空路由+redirect自动跳转到左侧菜单的第一个路由
+        path: '',
+        redirect: 'naming',
+      },
+      {
+        type: 'title',
+        title: 'Vue',
+      },
+      {
+        path: 'naming',
+        name: 'naming',
+        title: 'Vue命名规范',
+        component: () => import('../page/conventions/Naming.vue'),
+      },
+      {
+        path: 'module',
+        name: 'module',
+        title: '业务模块',
+        component: () => import('../page/conventions/Module.vue'),
+      },
+      {
+        path: 'script',
+        name: 'script',
+        title: 'Vue Script',
+        component: () => import('../page/conventions/VueJs.vue'),
+      },
+      {
+        path: 'template',
+        name: 'template',
+        title: 'DOM模版',
+        component: () => import('../page/conventions/VueTemplate.vue'),
+      },
+      {
+        type: 'title',
+        title: 'UI',
+      },
+      {
+        path: 'design-principle',
+        name: 'design-principle',
+        title: '设计规范',
+        component: () => import('../page/conventions/DesignPrinciple.vue'),
+      },
+    ],
+  },
+  {
     path: '/styles',
     name: 'styles',
     title: '样式',
@@ -13,37 +64,13 @@ const routeData = [
       {
         // 通过空路由+redirect自动跳转到左侧菜单的第一个路由
         path: '',
-        redirect: 'design-principle',
-      },
-      // {
-      //   type: 'title',
-      //   title: '组1'
-      // },
-      {
-        path: 'design-principle',
-        name: 'design-principle',
-        title: '设计规范',
-        component: () => import('../page/styles/DesignPrinciple.vue'),
+        redirect: 'style-library',
       },
       {
         path: 'style-library',
         name: 'style-library',
         title: '全局样式库',
         component: () => import('../page/styles/StyleLibrary/index.vue'),
-      },
-      {
-        type: 'title',
-        title: '约定',
-      },
-      {
-        type: 'title',
-        title: '命名',
-      },
-      {
-        path: 'vue-name',
-        name: 'vue-name',
-        title: 'vue命名规范',
-        component: () => import('../page/rule/vue.vue'),
       },
     ],
   },
@@ -61,23 +88,11 @@ const routeData = [
         type: 'title',
         title: '基本',
       },
-      // {
-      //   path: 'buttons',
-      //   name: 'buttons',
-      //   title: '按钮',
-      //   component: () => import('../page/components/Buttons.vue')
-      // },
       {
         path: 'empty-info',
         name: 'empty-info',
         title: 'EmptyInfo 空白提示',
         component: () => import('../page/components/EmptyInfo.vue'),
-      },
-      {
-        path: 'markdown-example',
-        name: 'markdown-example',
-        title: 'Markdown示例',
-        component: () => import('../page/components/MarkdownExample.vue'),
       },
     ],
   },
@@ -108,36 +123,6 @@ const routeData = [
       {
         type: 'title',
         title: '组件',
-      },
-    ],
-  },
-  {
-    path: '/vue',
-    name: 'vue',
-    title: 'VUE',
-    component: () => import('../page/ContentPage.vue'),
-    children: [
-      {
-        path: '',
-        redirect: 'template',
-      },
-      {
-        path: 'template',
-        name: 'template',
-        title: 'DOM 模版',
-        component: () => import('../page/vue/VueTemplate.vue'),
-      },
-      {
-        path: 'javascript',
-        name: 'javascript',
-        title: 'vue script',
-        component: () => import('../page/vue/VueJs.vue'),
-      },
-      {
-        path: 'module',
-        name: 'module',
-        title: '业务模块',
-        component: () => import('../page/vue/Module.vue'),
       },
     ],
   },

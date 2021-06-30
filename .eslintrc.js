@@ -24,6 +24,7 @@ module.exports = {
   ],
   plugins: ['prettier'],
   rules: {
+    'vue/attribute-hyphenation': 0,
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
